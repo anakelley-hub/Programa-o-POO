@@ -1,8 +1,12 @@
+// package br.gov.cetam.modelo;
+import br.gov.servico.ControlavelAmbiental;
 // Herança: Carro é uma subclasse de Automóvel
-public class Carro extends Automovel {
+public class Carro extends Automovel implements ControlavelAmbiental{
     // Atrbutos específicos e esclusivos da classe carro
     //Criar dois novos atributos para a classe carro
     // Atributos protegidos
+    private int Co_2;
+    private String teste;
     private int quantidadePortas;
     private String tipoCarroceria; // ex: Sedan, Hatch, Suv, Cupê
 
@@ -24,7 +28,18 @@ public class Carro extends Automovel {
     }
 
     // Sobrescrita de Método (Polimorfismo): Adaptando a Ficha Técnica para as características de um Carro
-@Override
+     @Override
+     public void realizarVistoriaGases(){
+        System.out.println("Realizar teste de emissoes de CO2 para o carro de passeio ( " + getModelo() + ") ...");
+        System.out.println("Teste concluído! Baixa emissao de gases poluentes.");
+     }
+
+     @Override
+     public void emitirLaudoSeguranca(){
+        System.out.println("Laudo Técnico emitido para carro de passeios. ");
+     }
+
+     @Override
      public void exibirFichaTecnica() {
 
     // Invoca o comportamento padrão escrito em Automovel (Evita duplicação de código)
@@ -34,6 +49,8 @@ public class Carro extends Automovel {
     System.out.println("--- Especificações de Veículo de Passeio ---");
     System.out.println("Quantidade de Portas: " + this.quantidadePortas);
     System.out.println("Tipo de Carroceria: " + this.tipoCarroceria);
+    System.out.println("Teste realizado Carro de passeio: " + this.CO_2);
+    System.out.println("Teste concluído com sucesso! " + this.teste);
     System.out.println("=========================================\n");
 }
 

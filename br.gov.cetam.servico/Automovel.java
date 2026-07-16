@@ -1,4 +1,6 @@
-public class Automovel {
+// package br.gov.cetam.modelo;
+
+public abstract class Automovel {
      //Atributos recebe o tipo dado 4 o nome do atributo
     // Programação Orientada a Objetos,
   private String marca;
