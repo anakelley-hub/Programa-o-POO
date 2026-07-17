@@ -1,8 +1,11 @@
+package br.gov.cetam.modelo;
+
+import br.gov.cetam.servico.ControlavelAmbiental;
 // A palavra-chave 'extends' indica que Caminhao HERDA tudo da classe Automovel
-public class Caminhao extends Automovel {
+public class Caminhao extends Automovel implements ControlavelAmbiental {
     
     // Atributos específicos da subclasse (o Automovel comum não possui)
-    private double capacidadeCargaDiretriz; // em toneladas
+    private double capacidaDeCarga; // em toneladas
     private int quantidadeEixos;
 
     // Construtor da subclasse
@@ -12,13 +15,13 @@ public class Caminhao extends Automovel {
         super(marca, modelo, ano, preco); 
         
         // Inicializa os atributos exclusivos da classe Caminhao
-        this.capacidadeCargaDiretriz = capacidadeCarga;
+        this.capacidadeDeCarga = capacidaDeCarga;
         this.quantidadeEixos = eixos;
     }
 
     // Método exclusivo da subclasse
     public void carregarCarga(double peso) {
-        if (peso <= this.capacidadeCargaDiretriz) {
+        if (peso <= this.capacidadeCarga) {
             System.out.println("O caminhão " + getModelo() + " foi carregado com " + peso + " toneladas.");
         } else {
             System.out.println("Alerta de Segurança: Peso de " + peso + "t excede o limite máximo de " + this.capacidadeCargaDiretriz + "t!");
